@@ -1,75 +1,9 @@
 //include All the required library
-#include <EEPROM.h> // This enables a tiny hard drive even when it becomes power off 
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include "lwip/lwip_napt.h"
 #include "lwip/app/dhcpserver.h"
-
-
-
-//EPSW(E_MOBILE_330,"MOBILE");
-
-//
-//void EPSW(int p_start_posn, char p_string[] ) { //EEPROMStringWrite
-////Write a string to EEPROM and terminate it with a NULL
-////We read first and do not rewrite bytes/chars that are unchanged
-//
-//  for (int l_posn = 0; l_posn < (int) strlen(p_string); l_posn ++) {
-//  byte l_byte = (byte) p_string[l_posn];
-//  byte l_read = EEPROM.read(p_start_posn + l_posn);
-//  if (l_read != l_byte) {
-//    EEPROM.write(p_start_posn + l_posn, l_byte);
-//  }
-//  }
-//  //write the NULL termination
-//  if (EEPROM.read(p_start_posn + strlen(p_string)) != 0)
-//  EEPROM.write(p_start_posn + strlen(p_string), 0);
-//  //
-//} //EPSW
-//
-//
-//
-//
-//String l_mobile = EPSR(E_MOBILE_330);
-//
-//String EPSR(int p_start_posn) { //EEPROMStringRead
-////Read a NULL terminated string from EEPROM
-////Only strings up to 128 bytes are supported
-//  byte l_byte;
-//
-//  //Count first, reserve exact string length and then extract
-//  int l_posn = 0;
-//  while (true) {
-//  l_byte = EEPROM.read(p_start_posn + l_posn);
-//  if (l_byte == 0) {
-//    break;
-//  }
-//  l_posn ++;
-//  }
-//
-//  //Now extract the string
-//  String l_string = "";
-//  l_string.reserve(l_posn + 1);
-//  char l_char;
-//  l_posn = 0;
-//  while (true) {
-//  l_byte = EEPROM.read(p_start_posn + l_posn);
-//  if (l_byte == 0) {
-//    break;
-//  }
-//  l_char = (char) l_byte;
-//  l_string += l_char;
-//  l_posn ++;
-//  if (l_posn == 128)
-//    break;
-//  //
-//  }
-//  return l_string;
-//} //EPSR
-
-
-
 String  sta_ssid = "";
 
 // we are creating a test AP so that an user can connect to the server by entering into the Test AP.
